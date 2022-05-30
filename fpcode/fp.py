@@ -8,7 +8,7 @@ import os
 root = Tk()
 root.title("Photo editor")
 root.geometry("640x640")
-root.iconbitmap("D:/projects/images/Ala-Too_Icon.png")
+root.iconbitmap("D:/projects/images/Ala-Too_Icon.ico")
 
 def selected():
     global img_path, img
@@ -106,4 +106,31 @@ def save():
 		elif canvas2.image==img11:
 			img10.save(file)
 
-blur
+blurr = Label(root, text="Blur:", font=("ariel19 bold"), width=9, anchor="e")
+blurr.place(x=15, y=8)
+v1 = IntVar()
+scale1 = ttk.Scale(root, from_=0, to=10, variable=v1, orient=HORIZONTAL, command=blur)
+scale1.place(x=150, y=10)
+bright = Label(root, text="Brightness:", font=("ariel 19 bold"))
+bright.place(x=8,y=50)
+v2 = IntVar()
+scale2 = ttk.Scale(root, from_=0, to=10, variable=v2, orient=HORIZONTAL, command=brightness)
+scale2.place(x=150, y=55)
+contrast = Label(root, text="Contrast:", font=("ariel 19 bold"))
+contrast.place(x=35, y=92)
+v3 = IntVar()
+scale3 = ttk.Scale(root, from_=0, to=10, variable=v3, orient=HORIZONTAL, command=contrast)
+scale3.place(x=150, y=100)
+rotate = Label(root, text="Rotate:", font=("ariel 19 bold"))
+rotate.place(x=370, y=8)
+values = [0, 90, 180, 270, 360]
+rotate_combo = ttk.Combobox(root, values=values, font=("ariel 9 bold"))
+rotate_combo.place(x=460, y=15)
+rotate_combo.bind("<<ComboboxSelected>>", rotate_image)
+flip = Label(root, text="Flip:", font=("ariel 19 bold"))
+flip.place(x=400, y=50)
+values1 = ["FLIP LEFT TO RIGHT", "FLIP TOP TO BOTTOM"]
+flip_combo = ttk.Combobox(root, values=values1, font=("ariel 9 bold"))
+flip_combo.place(x=320, y=92)
+values2 = [i for i in range(10, 45, 5)]
+border_combo
